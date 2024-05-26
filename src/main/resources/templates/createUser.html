@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание</title>
+</head>
+<body>
+<h1>Добавить нового пользователя</h1>
+<form action="#" th:action="@{/admin/saveUser}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label for="username">Имя Пользователя: </label>
+    <input type="text" id="username" th:field="*{username}" required><br/>
+
+    <label for="password">Пароль: </label>
+    <input type="text" id="password" th:field="*{password}" required><br/>
+
+    <label for="name">Имя: </label>
+    <input type="text" id="name" th:field="*{name}" required><br/>
+
+    <label for="lastname">Фамилия: </label>
+    <input type="text" id="lastname" th:field="*{surname}" required><br/>
+
+    <label for="age">Возраст:</label>
+    <input type="number" id="age" th:field="*{age}" required><br/>
+
+    <p>
+        <label>Roles:
+            <input type="checkbox" name="roles"
+                   th:each="role : ${allRoles}"
+                   th:text="${role.getRole()}"
+                   th:value="${role.getId()}"
+                   th:field="*{roles}"
+            />
+        </label>
+    </p>
+    <button type="submit">Сохранить</button>
+</form>
+<br/>
+<form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Logout">
+</form>
+</body>
+</html>

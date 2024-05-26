@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Стартовая страница админа</title>
+</head>
+<body>
+<div>
+    <h1>Стартовая страница</h1>
+    <a th:href="@{/admin/getUsers}">
+        <button>Просмотреть список пользователей</button>
+    </a>
+    <a th:href="@{/admin/addUser}">
+        <button>Создать нового пользователя</button>
+    </a>
+</div>
+</body>
+<br/>
+<form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Logout">
+</form>
+</html>
