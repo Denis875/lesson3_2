@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/admin/getUsers")
-    public String getCarController(ModelMap model) {
+    public String getUsers(ModelMap model) {
         model.addAttribute("users", us.getAll());
         return "users";
     }
