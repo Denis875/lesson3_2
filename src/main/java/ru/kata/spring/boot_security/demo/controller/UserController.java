@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -18,10 +17,13 @@ import java.util.List;
 
 @Controller
 public class UserController {
-    @Autowired
-    private UserService us;
-    @Autowired
-    private RoleService rs;
+    private final UserService us;
+    private final RoleService rs;
+
+    public UserController(UserService us, RoleService rs) {
+        this.us = us;
+        this.rs = rs;
+    }
 
     @GetMapping(value = "/admin")
     public String startPageForAdmin() {
